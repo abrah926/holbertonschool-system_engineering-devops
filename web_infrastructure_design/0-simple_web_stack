@@ -1,0 +1,42 @@
+
+    What is a server
+
+    A server is a computer or virtual machine connects other devices or computers to each other so they can share lets say information or resources. For example, file sharing.
+
+    What is the role of the domain name
+
+    Well, it would be too hard to remember a bunch of numbers like an ip address and now with ipv6 is even harder so we use names like example.com and the domain name maps it to the proper ip address
+
+    What type of DNS record www is in www.foobar.com
+
+    Idk you tell me lol! could be A could be CNAME, probably CNAME so you dont have to manually input any changes
+
+    What is the role of the web server
+
+    Handles http requests and fwds dynamic requests to the app server
+
+    What is the role of the application server
+
+    Runs my application file (app.py) handles the requests from the web server, we connect to the db from here too
+
+    What is the role of the database
+
+    Stores data like user pw, email, so on or my app setting or data you like to store pretty much
+
+    What is the server using to communicate with the computer of the user requesting the website
+
+    Http requests
+
+
+    SPOF (single point of failure)
+
+    Easy, if you only have one of smt and that smt fails is over, same reason why we all carry a spare tire in our vehicles
+
+    Downtime when maintenance is needed (like deploying new code web server needs to be restarted)
+
+    Any type of maintenance could disrupt the service, can be fixed by doing so in a stage env then uploading changes or creating redundancy like having multiple servers and update one while the others provide service along other forms to make this work
+
+    Cannot scale if too much incoming traffic
+
+    Seems like you need a load balancer, but could also scale vertically or horizontally. Even better why not all 3. there is many ways to solve the issue
+

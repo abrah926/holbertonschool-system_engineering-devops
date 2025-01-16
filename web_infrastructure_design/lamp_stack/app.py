@@ -1,6 +1,6 @@
 import mysql.connector
 
-def application(evn, start_response):
+def application(env, start_response):
     db_foobar = {
         'user': 'abrah926',
         'password': 'Micasa#1758926',
@@ -15,12 +15,12 @@ def application(evn, start_response):
         result = cursor.fetchone()
         message = f"Connected to database: {result[0]}"
     except mysql.connector.Error as err:
-        result = (f'Error connecting to MySQL: {err}')
-
+        message = f'Error connecting to MySQL: {err}'
     finally:
         if 'cnx' in locals() and cnx.is_connected():
             cnx.close()
 
+    # Properly use `final_message` for response
     final_message = message + " | Running LAMP stack with Python & Nginx, yeah buddy!"
     start_response('200 OK', [('Content-Type', 'text/plain')])
-    return [message.encode('utf-8')]
+    return [final_message.encode('utf-8')]
