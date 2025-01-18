@@ -1,0 +1,32 @@
+You must be able to explain some specifics about this infrastructure:
+
+    For every additional element, why you are adding it
+
+    HA addded to distribute incoming traffic between multiple backend servers, ensuring no single server is overwhelmed, this redundancy helps maintain the service functionality across all 3 servers counting the sever we already had + the 2 that were added. Also, added a 2nd db server (replica) if I had to explain why added the replica that would defeat the purpose of me wanting to add it in the first place I would think
+
+    What distribution algorithm your load balancer is configured with and how it works
+
+    round-robin: it distributes the traffic across all servers in the same quantities so no single server gets overloaded. leastconn is the recommended, will probably implement it in th
+
+    Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+
+    Active-Active: the difference is that the active-passive has to wait for one server to fail before the other takes over, this isnt optimal as only one server handles all the traffic
+
+    How a database Primary-Replica (Master-Slave) cluster works
+    What is the difference between the Primary node and the Replica node in regard to the application
+
+    Well primary or master db performs read and write operations, while the slave can only read, idally you want multiple of each to avoid spof
+
+You must be able to explain what the issues are with this infrastructure:
+
+    Where are SPOF
+
+    if the load balancer fails it will cause a spof same with the master db
+
+    Security issues (no firewall, no HTTPS)
+
+    Having no HTTPS means everyone can peek inside providing access to unwanted or malicious users and no firewall will enable them the access needed to do so
+
+    No monitoring
+
+    Without monitoring tools, there’s no way to track the system’s health, detect failures, or analyze performance metrics, is like trying to run a business without monitoring sales, payroll, expenses, etc

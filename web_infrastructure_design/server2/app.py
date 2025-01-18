@@ -1,5 +1,4 @@
 import mysql.connector
-import time
 
 def application(env, start_response):
     db_foobar = {
@@ -8,8 +7,6 @@ def application(env, start_response):
         'host': 'localhost',
         'database': 'foobar'
     }
-
-
 
     try:
         cnx = mysql.connector.connect(**db_foobar)

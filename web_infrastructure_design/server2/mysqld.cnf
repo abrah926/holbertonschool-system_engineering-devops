@@ -1,0 +1,11 @@
+[mysqld]
+server-id=2
+log_bin=mysql-bin
+bind-address=0.0.0.0
+replicate-do-db=foobar
+relay-log=/home/abrah926/holbertonschool-system_engineering-devops/web_infrastructure_design/server2/mysql-relay-bin
+datadir=/home/abrah926/holbertonschool-system_engineering-devops/web_infrastructure_design/server2/mysql-data
+socket=/home/abrah926/holbertonschool-system_engineering-devops/web_infrastructure_design/server2/mysql.sock
+pid-file=/home/abrah926/holbertonschool-system_engineering-devops/web_infrastructure_design/server2/mysql.pid
+read-only=1
+
