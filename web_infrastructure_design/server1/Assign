@@ -1,0 +1,10 @@
+
+/home/abrah926eholbertonschool-system_engineering-devops/web_infrastructure_design/server1
+/ca's MySQL configuration (/etc/mysql/mysql.conf.d/mysqld.cnf) to set a unique server-id. For example:
+            For Replica 1 (Server2):
+
+server-id = 3
+
+For Replica 2 (Server3):
+
+server-id = 3home/abrah926/holbertonschool-system_engineering-devops/web_infrastructure_design/server1

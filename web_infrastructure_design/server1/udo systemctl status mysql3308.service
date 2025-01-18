@@ -1,0 +1,11 @@
+[0;1;31m●[0m mysql3307.service - MySQL Server 3307
+     Loaded: loaded (/etc/systemd/system/mysql3307.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Sat 2025-01-18 14:16:38 AST; 20s ago
+    Process: 3425845 ExecStart=/usr/sbin/mysqld --defaults-file=/etc/mysql/mysql.conf.d/mysqld3307.cnf [0;1;31m(code=exited, status=1/FAILURE)[0m
+   Main PID: 3425845 (code=exited, status=1/FAILURE)
+
+ene 18 14:16:38 abrah926-ThinkBook-15-G2-ITL systemd[1]: mysql3307.service: Scheduled restart job, restart counter is at 5.
+ene 18 14:16:38 abrah926-ThinkBook-15-G2-ITL systemd[1]: Stopped MySQL Server 3307.
+ene 18 14:16:38 abrah926-ThinkBook-15-G2-ITL systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql3307.service: Start request repeated too quickly.[0m
+ene 18 14:16:38 abrah926-ThinkBook-15-G2-ITL systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql3307.service: Failed with result 'exit-code'.[0m
+ene 18 14:16:38 abrah926-ThinkBook-15-G2-ITL systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Server 3307.[0m

@@ -1,0 +1,11 @@
+[0;1;31m●[0m uwsgi-server1.service - uWSGI Service for Server 1
+     Loaded: loaded (/etc/systemd/system/uwsgi-server1.service; disabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: exit-code) since Sat 2025-01-18 14:08:37 AST; 18s ago
+    Process: 3422010 ExecStart=/usr/bin/uwsgi --ini /home/abrah926/holbertonschool-system_engineering-devops/web_infrastructure_design/server1/uwsgi.ini [0;1;31m(code=exited, status=203/EXEC)[0m
+   Main PID: 3422010 (code=exited, status=203/EXEC)
+
+ene 18 14:08:37 abrah926-ThinkBook-15-G2-ITL systemd[1]: uwsgi-server1.service: Scheduled restart job, restart counter is at 5.
+ene 18 14:08:37 abrah926-ThinkBook-15-G2-ITL systemd[1]: Stopped uWSGI Service for Server 1.
+ene 18 14:08:37 abrah926-ThinkBook-15-G2-ITL systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185muwsgi-server1.service: Start request repeated too quickly.[0m
+ene 18 14:08:37 abrah926-ThinkBook-15-G2-ITL systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185muwsgi-server1.service: Failed with result 'exit-code'.[0m
+ene 18 14:08:37 abrah926-ThinkBook-15-G2-ITL systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start uWSGI Service for Server 1.[0m
