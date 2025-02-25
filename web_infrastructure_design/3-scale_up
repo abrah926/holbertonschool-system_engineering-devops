@@ -1,0 +1,77 @@
+# Scale-Up Web Infrastructure Design
+
+## Overview
+This document outlines the scale-up design for the web infrastructure of **www.foobar.com**, ensuring high availability, load distribution, and component separation for improved performance and fault tolerance.
+
+## Infrastructure Components
+1. **2 Load Balancers (HAProxy Cluster):**
+   - Configured in an Active-Passive setup to ensure high availability.
+
+2. **3 Web Servers (Nginx):**
+   - Handle static content and forward dynamic requests to application servers.
+
+3. **3 Application Servers:**
+   - Execute the business logic and process dynamic content.
+
+4. **2 Database Servers:**
+   - Primary-Replica (Master-Slave) setup for data redundancy and failover.
+
+5. **3 Firewalls:**
+   - Protect the infrastructure at each layer: user-to-load balancer, load balancer-to-web servers, and web servers-to-database.
+
+6. **SSL Certificates:**
+   - Ensure secure HTTPS communication between users and servers.
+
+7. **Monitoring Clients:**
+   - Tools like Prometheus or Sumologic to collect system metrics and logs.
+
+## How Each Component Works
+1. **Load Balancer Cluster:**
+   - **Active-Passive Setup:** One HAProxy node actively handles traffic, while the other remains on standby. If the active node fails, the passive one takes over seamlessly.
+   - **Round-Robin Algorithm:** Distributes incoming traffic evenly across web servers.
+
+2. **Web Servers:**
+   - Serve static files (images, HTML, CSS) and act as reverse proxies for dynamic requests.
+
+3. **Application Servers:**
+   - Run the website's backend code and communicate with the database.
+
+4. **Database Cluster:**
+   - **Primary Node:** Handles all write operations.
+   - **Replica Node:** Syncs with the primary and handles read operations, improving performance.
+
+5. **Firewalls:**
+   - Restrict access based on predefined rules, preventing unauthorized traffic.
+
+6. **SSL Certificates:**
+   - Encrypt data in transit, protecting user information.
+
+7. **Monitoring:**
+   - Collects metrics such as CPU usage, memory consumption, and QPS (Queries Per Second).
+
+## Benefits of This Design
+1. **High Availability:**
+   - Redundant load balancers and servers prevent service disruptions.
+
+2. **Improved Performance:**
+   - Traffic distribution and component separation enhance responsiveness.
+
+3. **Fault Tolerance:**
+   - If one server fails, others continue handling requests.
+
+4. **Scalability:**
+   - Easily add more web, application, or database servers as traffic grows.
+
+## Issues Addressed
+1. **Single Point of Failure (SPOF):**
+   - Redundant load balancers and database replicas prevent system-wide outages.
+
+2. **Security:**
+   - Firewalls, HTTPS, and access controls protect infrastructure components.
+
+3. **Monitoring and Alerting:**
+   - Real-time tracking ensures quick issue detection and resolution.
+
+This design ensures a scalable, resilient, and secure web infrastructure for **www.foobar.com**, ready to handle increased traffic and operational demands efficiently.
+
+

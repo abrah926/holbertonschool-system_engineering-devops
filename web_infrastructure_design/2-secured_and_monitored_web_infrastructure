@@ -1,0 +1,110 @@
+# Secured and Monitored Web Infrastructure Design
+
+## Overview
+This document outlines the design for a secured and monitored web infrastructure for the website **www.foobar.com**, ensuring encrypted traffic, security, and system monitoring.
+
+## Infrastructure Components
+1. **3 Firewalls:**
+   - Firewall 1: Protects external traffic to the load balancer.
+   - Firewall 2: Protects traffic between load balancer and web servers.
+   - Firewall 3: Protects database servers from web servers.
+
+2. **SSL Certificate:**
+   - Enables HTTPS for secure communication.
+
+3. **3 Monitoring Clients:**
+   - Collect metrics and logs for analysis and alerting.
+
+4. **Load Balancer:**
+   - HAProxy distributes traffic across web servers.
+
+5. **2 Web Servers (Nginx):**
+   - Serve static content and forward dynamic requests to application servers.
+
+6. **2 Application Servers:**
+   - Run application code and handle business logic.
+
+7. **Database Cluster:**
+   - Primary-Replica setup for redundancy and performance.
+
+## How Each Component Works
+1. **Firewalls:**
+   - Protect against unauthorized access by filtering traffic based on defined rules.
+
+2. **SSL Certificate:**
+   - Encrypts data transmitted between users and the web server.
+
+3. **Monitoring:**
+   - Tools like Prometheus or Sumologic collect metrics (CPU, memory, QPS).
+
+4. **Load Balancer:**
+   - Uses round-robin distribution to balance requests across servers.
+
+5. **Primary-Replica Database:**
+   - Primary handles writes; replicas handle read operations.
+
+## Issues Addressed
+1. **SSL Termination at Load Balancer:**
+   - End-to-end encryption ensures no plain-text traffic internally.
+
+2. **Single MySQL Write Server:**
+   - Primary-Replica setup prevents data loss during primary failure.
+
+3. **Unified Server Components:**
+   - Separation improves fault tolerance and performance.
+
+---
+
+# Scale-Up Infrastructure Design
+
+## Overview
+This design expands the secured infrastructure by increasing capacity and separating server roles for scalability.
+
+## Infrastructure Components
+1. **2 Load Balancers (HAProxy Cluster):**
+   - Active-Passive setup for high availability.
+
+2. **3 Web Servers (Nginx):**
+   - Serve static content and reverse proxy to app servers.
+
+3. **3 Application Servers:**
+   - Handle dynamic requests and business logic.
+
+4. **2 Database Servers:**
+   - Primary-Replica setup with automatic failover.
+
+5. **3 Firewalls:**
+   - Ensure security between user, app, and database layers.
+
+6. **SSL Certificates:**
+   - Enable HTTPS for secure communication.
+
+7. **Monitoring Clients:**
+   - Continuously track system health and performance.
+
+## Why These Additions?
+1. **Load Balancer Cluster:**
+   - Ensures high availability if one load balancer fails.
+
+2. **Component Separation:**
+   - Isolating web, app, and database servers enhances performance and fault tolerance.
+
+3. **Database Cluster:**
+   - Prevents downtime by promoting replicas if the primary fails.
+
+4. **Monitoring:**
+   - Enables proactive issue detection and resolution.
+
+## Issues Addressed
+1. **Single Point of Failure:**
+   - Redundant load balancers and distributed services prevent outages.
+
+2. **Scalability:**
+   - Separate servers allow horizontal scaling under heavy traffic.
+
+3. **Security:**
+   - Firewalls and HTTPS protect data at rest and in transit.
+
+This design ensures a resilient, scalable, and secure web infrastructure for www.foobar.com.
+
+
